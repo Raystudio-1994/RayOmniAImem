@@ -1,0 +1,7 @@
+# Caddyfile: Auto-SSL WSS Reverse Proxy configuration
+# Replace your-domain.com with your public DNS hostname
+
+your-domain.com {
+    # Terminate SSL automatically and reverse proxy connections to our Yjs node daemon
+    reverse_proxy sync-daemon:8950
+}

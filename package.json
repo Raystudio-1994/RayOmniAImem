@@ -12,8 +12,13 @@
     "electron:start": "electron ."
   },
   "dependencies": {
+    "@babel/generator": "^8.0.0",
+    "@babel/parser": "^8.0.4",
+    "@babel/traverse": "^8.0.4",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "y-websocket": "^3.0.0",
+    "yjs": "^13.6.31"
   },
   "devDependencies": {
     "@types/node": "^24.13.2",
