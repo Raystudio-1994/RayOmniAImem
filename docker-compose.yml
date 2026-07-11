@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  sync-daemon:
+    build: .
+    restart: always
+    environment:
+      - OMNISYNC_TOKEN=${OMNISYNC_TOKEN:-secure-crdt-token-123}
+    ports:
+      - "8950:8950"
+
+  caddy-proxy:
+    image: caddy:2-alpine
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - sync-daemon
+
+volumes:
+  caddy_data:
+  caddy_config:
